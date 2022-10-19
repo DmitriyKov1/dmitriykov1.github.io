@@ -1,2 +1,2 @@
-export const LOGIN_ROUTE = '/login'
+export const LOGIN_ROUTE = '/'
 export const FILE_ROUTE = '/file'

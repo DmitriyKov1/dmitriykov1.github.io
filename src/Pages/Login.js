@@ -6,9 +6,9 @@ export default function Login() {
     
     <div className="hero-unit">
       <h1>Авторизоваться</h1>
-      <p>
+      
         <Button/>
-      </p>
+      
     </div>
   );
 }

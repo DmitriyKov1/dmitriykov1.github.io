@@ -1,0 +1,13 @@
+.breadcrump {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-bottom: 20px;
+}
+
+
+.breadcrumpItem {
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: bold;
+}

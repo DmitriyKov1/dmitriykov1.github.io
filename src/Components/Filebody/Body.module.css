@@ -1,0 +1,10 @@
+.listItem {
+    display: flex;
+    justify-content: space-between;
+}
+.icon {
+    margin-right: 5px;
+}
+.dropdown {
+    width: 50px;
+}

@@ -1,0 +1,8 @@
+.navbarItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbarIner {
+    height: 45px;
+}

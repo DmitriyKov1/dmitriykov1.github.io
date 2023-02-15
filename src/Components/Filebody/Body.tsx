@@ -16,7 +16,7 @@ interface BodyProps {
         "mimeType": string;
     title: string;};
     handleClickDropbox: (e: React.MouseEvent<HTMLAnchorElement>, pathBack: string,) => void;
-    handleClickGoogle: (e: React.MouseEvent<HTMLAnchorElement>, pathBack: string,) => void;
+    handleClickGoogle: (e: React.MouseEvent<HTMLAnchorElement>, pathBack: string, name: string) => void;
     index: number;
 }
 
@@ -26,7 +26,11 @@ const Body: React.FC<BodyProps> = ({handleClickDropbox, handleClickGoogle, item,
     const [showDropdown, setShowDropdawn] = useState(false);
     const [id, setId] = useState("");
     const {isGoogle} = useContext(UserContext)
-    const onClickButton = (e: React.MouseEvent<HTMLAnchorElement>) => {isGoogle ? handleClickGoogle(e, item.id) : handleClickDropbox(e, item.path_display)}
+    const onClickButton = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        isGoogle ?
+        handleClickGoogle(e, item.id, item.title) 
+        : 
+        handleClickDropbox(e, item.path_display)}
 
     return (
 
@@ -56,7 +60,7 @@ const Body: React.FC<BodyProps> = ({handleClickDropbox, handleClickGoogle, item,
                 </div>
                 )}
                 <div className={styles.dropdown}>
-                    {item.id === id ? <Dropdown showDropdown={showDropdown} setShowDropdawn={setShowDropdawn} delitePath={item.path_display}/> : null} 
+                    {item.id === id ? <Dropdown showDropdown={showDropdown} setShowDropdawn={setShowDropdawn} delitePathDropbox={item.path_display} delitePathGoogle={item.id}/> : null} 
                 </div>
             </td>
 

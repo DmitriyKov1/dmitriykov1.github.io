@@ -4,12 +4,15 @@ import {BrowserRouter} from "react-router-dom";
 import App from "./App";
 import "./bootstrap/css/bootstrap.css"
 import UserStore from "./UserStore";
+import APIrequest from "./APIrequest";
 
 
 ReactDOM.render(
   <BrowserRouter>
   <UserStore>
-    <App/>
+    <APIrequest>
+      <App/>
+    </APIrequest>
   </UserStore>
   </BrowserRouter>,
   document.getElementById("root")

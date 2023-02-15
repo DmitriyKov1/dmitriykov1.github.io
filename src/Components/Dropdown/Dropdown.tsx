@@ -1,30 +1,29 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import styles from "./Dropdown.module.css";
 import Modal from "../Modal/Modal";
-import axios from "axios";
+import { APIContext } from "../../APIrequest";
+import { UserContext } from "../../UserStore";
 
 interface DropdownProps {
     showDropdown: boolean,
     setShowDropdawn: React.Dispatch<React.SetStateAction<boolean>>,
-    delitePath: string,
+    delitePathDropbox: string,
+    delitePathGoogle: string
 }
 
-const Dropdown: React.FC<DropdownProps> = ({showDropdown, setShowDropdawn,delitePath}) => {
+const Dropdown: React.FC<DropdownProps> = ({showDropdown, setShowDropdawn, delitePathDropbox, delitePathGoogle}) => {
 
     const [modalActive, setModalActive] = useState(false)
-
-
-    const deleteItem = (path: string) => {
-            return axios.post("https://api.dropboxapi.com/2/files/delete_v2",{                    
-                "path": path,
-                }, {
-                headers: {
-                Authorization: `Bearer ${localStorage.getItem("token")}`,
-                
-                }, 
-            }).then(()=> {window.location.reload()})
-                    
+    const {isGoogle} = useContext(UserContext)
+    const {deleteItemDropbox, deleteItemGoogle} = useContext(APIContext)
+    const deleteClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        isGoogle ?
+        deleteItemGoogle(delitePathGoogle)
+        : 
+        deleteItemDropbox(delitePathDropbox)
         }
+
+    
     
     
     return (
@@ -37,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({showDropdown, setShowDropdawn,delite
         {showDropdown && (  
             <ul className={styles.dropdownContent}>
                 <li >
-                    <button className={styles.dropdownItem} onClick={()=> deleteItem(delitePath)}>
+                    <button className={styles.dropdownItem} onClick={(e)=> deleteClick(e)}>
                         Удалить
                     </button>
                 </li>

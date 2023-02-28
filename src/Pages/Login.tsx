@@ -1,20 +1,23 @@
 import React from "react";
 import styles from "../Pages/Login.module.css";
+import { URL_DROPBOX } from "../constants";
+import { URL_GOOGLE } from "../constants";
 
+const Login: React.FC = () => {
+    const urlGoogle = URL_GOOGLE;
+    const urlDropbox = URL_DROPBOX;
+    return (
+        <div className={styles.loginToolbar}>
+            <h1>Авторизоваться</h1>
 
-const Login: React.FC = () =>{
+            <a className="btn" href={urlGoogle}>
+                Google
+            </a>
+            <a className="btn" href={urlDropbox}>
+                Dropbox
+            </a>
+        </div>
+    );
+};
 
-  const urlGoogle = "https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A//www.googleapis.com/auth/drive.metadata.readonly&include_granted_scopes=true&response_type=token&state=state_parameter_passthrough_value&redirect_uri=http://localhost:3000/file&client_id=640731908041-mms5vqoc2lvcv8vbcra0ou2i7cs5beta.apps.googleusercontent.com"
-  const urlDropbox = "https://www.dropbox.com/oauth2/authorize?client_id=yk19687dxym0jfo&token_access_type=offline&response_type=code&redirect_uri=http://localhost:3000/file"
-  return (
-    <div className={styles.loginToolbar}>
-        <h1>Авторизоваться</h1>
-        
-        <a className="btn" href={urlGoogle}>Google</a>
-        <a className="btn" href={urlDropbox}>Dropbox</a>
-    </div>
-  );
-}
-
-export default Login
-
+export default Login;

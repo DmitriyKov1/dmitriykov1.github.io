@@ -5,14 +5,14 @@ const Head: React.FC = () => {
         <thead>
             <tr>
                 <th>
-                <input type="checkbox" />
+                    <input type="checkbox" />
                 </th>
                 <th>Имя</th>
                 <th>Размер</th>
                 <th>Дата изменения</th>
             </tr>
         </thead>
-    )
-}
+    );
+};
 
-export default Head
+export default Head;

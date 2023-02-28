@@ -7,19 +7,18 @@ import "../index.css";
 const Layout: React.FC = () => {
     return (
         <>
-        <div className="wrapper">
-            <header>
-                    <Navbar/>
-            </header>
-            <main>
-                    <Outlet/>
-            </main>
-            <footer>
-                    <Footer/>
-            </footer>
-        </div>
+            <div className="wrapper">
+                <header>
+                    <Navbar />
+                </header>
+                <main>
+                    <Outlet />
+                </main>
+                <footer>
+                    <Footer />
+                </footer>
+            </div>
         </>
-
-    )
-}
-export default Layout
+    );
+};
+export default Layout;

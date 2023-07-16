@@ -1,5 +1,6 @@
 import React, { createContext, PropsWithChildren } from "react";
 import axios, { AxiosResponse } from "axios";
+import { base } from "./constants";
 
 interface ValueAPI {
   Authorization: () => Promise<AxiosResponse>;
@@ -35,7 +36,7 @@ const ApiRequest: React.FC<PropsWithChildren> = ({ children }) => {
     const token = new URLSearchParams(window.location.search).get("code");
     return axios.post(
       "https://api.dropboxapi.com/oauth2/token",
-      `code=${token}&grant_type=authorization_code&redirect_uri=http://localhost:3000/file`,
+      `code=${token}&grant_type=authorization_code&redirect_uri=${base}`,
       {
         headers: {
           Authorization: "Basic eWsxOTY4N2R4eW0wamZvOnBlODB1NWN2dzNtZ3J6bg==",

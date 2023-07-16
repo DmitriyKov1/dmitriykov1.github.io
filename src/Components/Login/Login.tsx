@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../Pages/Login.module.css";
-import { URL_DROPBOX } from "../constants";
-import { URL_GOOGLE } from "../constants";
+import styles from "./Login.module.css";
+import { URL_DROPBOX } from "../../constants";
+import { URL_GOOGLE } from "../../constants";
 
 const Login: React.FC = () => {
     const urlGoogle = URL_GOOGLE;

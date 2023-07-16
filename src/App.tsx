@@ -1,8 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Login from "./Pages/Login";
-import File from "./Pages/File";
-import { LOGIN_ROUTE, FILE_ROUTE } from "./constants";
+import Main from "./Pages/Main";
+import { LOGIN_ROUTE } from "./constants";
 import Layout from "./Components/Layout";
 
 const App: React.FC = () => {
@@ -11,8 +10,7 @@ const App: React.FC = () => {
             <div className="app">
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route path={LOGIN_ROUTE} element={<Login />} />
-                        <Route path={FILE_ROUTE} element={<File />} />
+                        <Route path={LOGIN_ROUTE} element={<Main />} />
                     </Route>
                 </Routes>
             </div>
